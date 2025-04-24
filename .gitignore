@@ -1,0 +1,40 @@
+# Dataset files
+Dataset/
+input/
+
+# Virtual environment
+venv/
+env/
+.venv/
+.env/
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Large output files (exclude model checkpoints but keep results)
+output/*.pth
+output/ablation_*_best.pth
+output/sasrec_baseline_best.pth
+output/timesasrec_best.pth
+
+# But keep these output files for sharing
+!output/*.csv
+!output/*.png
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IDE files
+.idea/
+.vscode/
+
+# OS specific files
+.DS_Store
+Thumbs.db 

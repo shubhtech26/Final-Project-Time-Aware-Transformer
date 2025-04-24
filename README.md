@@ -39,21 +39,32 @@ This project uses the Instacart Online Grocery Basket Analysis dataset, which ne
    python time_aware_recommender.py
    ```
 
-## Modifications for macOS
-
-The code has been modified to run efficiently on macOS:
-- Sampled a smaller subset of data (5% of orders)
-- Reduced model size (hidden_size: 32, num_heads: 2)
-- Decreased training epochs (5 epochs)
-- Smaller batch size (16)
-- Ablation study is disabled by default to save time/memory
-
 ## Results
 
 The experiment outputs will be saved to the `output/` directory:
 - Model checkpoints
 - Performance metrics and comparison charts
 - Time segment analysis results
+
+This repository includes key output files from previous runs in the `output/` folder:
+- CSV files with metrics and comparison data
+- Visualization plots showing model performance
+- Time segment analysis results
+
+## GitHub Repository Structure
+
+```
+├── Dataset/ (not included, download separately)
+├── output/
+│   ├── *.csv (performance metrics)
+│   └── *.png (visualization charts)
+├── .gitignore
+├── README.md
+├── requirements.txt
+└── time_aware_recommender.py
+```
+
+The large model checkpoint files (*.pth) are excluded from the repository but all result files and visualizations are included to allow for easy review of the model's performance.
 
 ## Model Details
 
@@ -67,6 +78,8 @@ The project implements two models:
 
 ## Notes
 
-- If you want to run the full experiment, modify the sampling rate in the `main()` function
-- To enable the ablation study, uncomment the relevant code in the main function
-- Adjust batch sizes and model configurations based on your system's capabilities 
+This implementation processes the full Instacart dataset and performs comprehensive analyses:
+- Full dataset training for both baseline and time-aware models
+- Detailed time segment analysis (morning/evening, weekday/weekend)
+- Ablation study to understand the importance of different temporal features
+- Performance comparison between models using multiple metrics (Recall@k, NDCG@k, Hit@k) 
